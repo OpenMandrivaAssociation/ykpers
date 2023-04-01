@@ -1,2 +1,4 @@
 sources:
-  ykpers-1.14.0.tar.gz: 5795fb78db62d4c37984174f69ce18312bc0708d
+  ykpers-1.14.0.tar.gz.sig: a72a92f0572625f89d4b768fa09ad57719430c2c
+  ykpers-1.20.0.tar.gz: 6174d131ca447e66bfbc5de58bd032d8e448d254
+  ykpers-1.20.0.tar.gz.sig: 8cf638ed86bd8301cef2557f90347ec84a9b15e6
