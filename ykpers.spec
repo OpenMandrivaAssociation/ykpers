@@ -15,6 +15,7 @@ URL:		https://developers.yubico.com/yubikey-personalization/
 Source0:	https://developers.yubico.com/yubikey-personalization/Releases/%{name}-%{version}.tar.gz
 Source1:	https://developers.yubico.com/yubikey-personalization/Releases/%{name}-%{version}.tar.gz.sig
 Patch0:		ykpers-args-extern.patch
+Patch1:		ykpers-1.20.0-json.patch
 
 BuildRequires:	libyubikey-devel
 %if %{with json}
