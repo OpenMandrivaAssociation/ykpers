@@ -3,7 +3,7 @@
 %global devname		%mklibname ykpers -d
 %global oldlibname	%mklibname ykpers
 
-%bcond_without	json-c
+%bcond_without	json
 
 Summary:	Yubikey Personalization
 Name:		ykpers
@@ -17,7 +17,7 @@ Source1:	https://developers.yubico.com/yubikey-personalization/Releases/%{name}-
 Patch0:		ykpers-args-extern.patch
 
 BuildRequires:	libyubikey-devel
-%if %{with json-c}
+%if %{with json}
 BuildRequires:	pkgconfig(json-c)
 %endif
 BuildRequires:	pkgconfig(libusb)
@@ -79,7 +79,7 @@ This package contains various tools for ykpers.
 %{_bindir}/ykinfo
 %{_bindir}/ykpersonalize
 %{_mandir}/man1/*
-%{_udevrulesdir}/69-yubikey.gs
+%{_udevrulesdir}/69-yubikey.rules
 
 #----------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ This package contains various tools for ykpers.
 	--enable-static=no \
     --with-udevrulesdir=%{_udevrulesdir} \
     --with-backend=libusb \
-	--with%{?with_json-c:}%{?!with_json-c:out}-json
+	--with%{?!with_json:out}-json
 %make_build
 
 %install
