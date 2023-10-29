@@ -1,9 +1,9 @@
 %global	major 1
 %global libname		%mklibname ykpers
 %global devname		%mklibname ykpers -d
-%global oldlibname	%mklibname ykpers 1
+%global oldlibname	%mklibname ykpers
 
-%bcond_with	json-c
+%bcond_without	json-c
 
 Summary:	Yubikey Personalization
 Name:		ykpers
@@ -21,6 +21,7 @@ BuildRequires:	libyubikey-devel
 BuildRequires:	pkgconfig(json-c)
 %endif
 BuildRequires:	pkgconfig(libusb)
+BuildRequires:	pkgconfig(udev)
 
 %description
 The YubiKey Personalization package contains a library and command line tool
@@ -31,7 +32,7 @@ used to personalize (i.e., set a AES key) YubiKeys.
 %package -n %{libname}
 Summary:	The shared Yubikey Personalization library
 Group:		System/Libraries
-Obsoletes:	%{oldlibname} <= %{EVRD}
+Obsoletes:	%{oldlibname} < %{EVRD}
 
 %description -n	%{libname}
 The YubiKey Personalization package contains a library and command line tool
@@ -47,7 +48,7 @@ used to personalize (i.e., set a AES key) YubiKeys.
 Summary:	Development files for the Yubikey Personalization library
 Group:		Development/C
 Provides:	%{name}-devel = %{version}
-Requires:	%{libname} >= %{version}
+Requires:	%{libname} = %{version}
 
 %description -n	%{devname}
 The YubiKey Personalization package contains a library and command line tool
@@ -78,7 +79,7 @@ This package contains various tools for ykpers.
 %{_bindir}/ykinfo
 %{_bindir}/ykpersonalize
 %{_mandir}/man1/*
-%{_udevrulesdir}/69-yubikey.rules
+%{_udevrulesdir}/69-yubikey.gs
 
 #----------------------------------------------------------------------------
 
